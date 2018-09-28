@@ -1,0 +1,51 @@
+.App {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.App .part-input {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  margin: 10px;
+  font-size: 14px;
+  transition: transform 0.1s ease-out;
+}
+
+.App .part-input:focus-within {
+  transform: scale(2);
+}
+
+.App .part-input__correct {
+  color: green;
+}
+
+.App .part-input label {
+  display: inline-block;
+  width: 14px;
+}
+
+.App .part-input input {
+  border: none;
+  border-bottom: 2px solid black;
+  width: 14px;
+  margin-left: 1px;
+  text-align: center;
+  opacity: 0.5;
+  transition: opacity ease 0.2s;
+  outline: 0;
+
+  color: transparent;
+  text-shadow: 0 0 0 black;
+}
+
+.App .part-input input:focus {
+  opacity: 1;
+}
+
+.App.all-correct {
+
+}
