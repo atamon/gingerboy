@@ -14,8 +14,8 @@ interface IPartInputProps {
 }
 
 const LABEL  = 'GINGERBOY';
-const SECRET = 'GINGERBOY';
-// const SECRET = 'BBLBWC4VF';
+// const SECRET = 'GINGERBOY';
+const SECRET = 'BBLBWC4VF';
 
 // https://www.youtube.com/watch?v=YgFwM89OCfA
 
@@ -33,13 +33,14 @@ const PartInput = ({ label, onUpdate, value, isCorrect }: IPartInputProps) => {
 
 const Prize = () => {
   return (
-    <iframe
-      width="1425"
-      height="621"
-      src="https://www.youtube.com/embed/_ddQqzwH__4"
-      frameBorder="0"
-      allow="autoplay; encrypted-media"
-      allowFullScreen />
+    <div className="prize">
+      <iframe
+        src="https://www.youtube.com/embed/_ddQqzwH__4"
+        frameBorder="0"
+        allow="autoplay; encrypted-media"
+        allowFullScreen />
+      <h3>🍾🍾🍾 Starta PS4at 🍾🍾🍾</h3>
+    </div>
   );
 }
 
@@ -63,7 +64,7 @@ class App extends React.Component {
     const char = value[value.length - 1].toUpperCase();
     const isCorrect = char === SECRET[idx];
     inputs[idx] = { char, isCorrect };
-    const allIsCorrect = this.state.allIsCorrect || inputs.join('') === SECRET;
+    const allIsCorrect = this.state.allIsCorrect || inputs.map(inp => inp.char).join('') === SECRET;
     this.setState({ inputs, allIsCorrect });
   }
 
@@ -76,6 +77,7 @@ class App extends React.Component {
 
       inputEls.push(
         <PartInput
+          key={i}
           label={LABEL[i]}
           isCorrect={isCorrect}
           value={char}
@@ -89,8 +91,11 @@ class App extends React.Component {
 
     return (
       <div className={className}>
+        <h1>Hallonbåtsjakten</h1>
         {prize}
-        {inputEls}
+        <div className="inputs">
+          {inputEls}
+        </div>
       </div>
     );
   }
