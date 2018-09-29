@@ -17,6 +17,12 @@
   height: 35px;
 }
 
+.App .part-input input:disabled {
+  background: transparent;
+  color: green;
+  border-color: green;
+}
+
 .App .part-input:focus-within {
   transform: scale(2);
 }
@@ -34,7 +40,6 @@
   border: none;
   border-bottom: 2px solid black;
   width: 14px;
-  margin-left: 1px;
   text-align: center;
   opacity: 0.5;
   transition: opacity ease 0.2s;
@@ -50,7 +55,8 @@
 
 .App.all-correct .prize {
   height: 300px;
-  animation: prize-fadein 1s ease-in;
+  animation: prize-fadein 1s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+  width: 100vw;
 }
 
 .App .inputs {

@@ -35,6 +35,8 @@ const Prize = () => {
   return (
     <div className="prize">
       <iframe
+        width="100%"
+        height="220px"
         src="https://www.youtube.com/embed/_ddQqzwH__4"
         frameBorder="0"
         allow="autoplay; encrypted-media"
@@ -61,7 +63,7 @@ class App extends React.Component {
     if (idx < 0 || idx >= SECRET.length) throw new Error('Invalid index ' + idx);
 
 
-    const char = value[value.length - 1].toUpperCase();
+    const char = (value[value.length - 1] || '').toUpperCase();
     const isCorrect = char === SECRET[idx];
     inputs[idx] = { char, isCorrect };
     const allIsCorrect = this.state.allIsCorrect || inputs.map(inp => inp.char).join('') === SECRET;
@@ -91,7 +93,7 @@ class App extends React.Component {
 
     return (
       <div className={className}>
-        <h1>Hallonbåtsjakten</h1>
+        {!prize && <h1>Hallonbåtsjakten</h1>}
         {prize}
         <div className="inputs">
           {inputEls}
